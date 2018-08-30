@@ -1,0 +1,56 @@
+﻿@model DimensaoTeste.Models.TaskList
+
+@{
+    ViewBag.Title = "Remover";
+}
+
+<h2>Remover tarefa</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            <textarea class="form-control" rows="8" disabled name="Descricao">@Html.DisplayTextFor(model => model.Descricao)</textarea>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-actions no-color">
+
+            <a type="button" class="btn btn-primary" href="/TaskLists">
+                <i class="fa fa-fw fa-arrow-left"></i>Voltar
+            </a>
+
+            <button type="submit" value="Delete" data-toggle="modal" class="btn btn-danger removeButton">
+                <i class="fa fa-fw fa-trash"></i>Remover
+            </button>
+
+
+        </div>
+    }
+</div>

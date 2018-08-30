@@ -1,0 +1,45 @@
+﻿@model DimensaoTeste.Models.TaskList
+
+@{
+    ViewBag.Title = "Visualizar";
+}
+
+<h2>Visualizar tarefa</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            <textarea class="form-control" rows="8" disabled name="Descricao">@Html.DisplayTextFor(model => model.Descricao)</textarea>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a type="button" class="btn btn-primary" href="/TaskLists">
+        <i class="fa fa-fw fa-arrow-left"></i>Voltar
+    </a>
+    <a type="button" class="btn btn-primary" href="/TaskLists/Edit/@(Html.AttributeEncode(Model.Id))">
+        <i class="fa fa-fw fa-lg fa-edit"></i>Editar
+    </a>
+</p>

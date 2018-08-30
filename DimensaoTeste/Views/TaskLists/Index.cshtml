@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DimensaoTeste.Models.TaskList>
+
+@{
+    ViewBag.Title = "Tarefas";
+}
+
+<br />
+
+<a type="button" href="/TaskLists/Create" class="btn btn-primary">
+    <i class="fa fa-fw fa-plus"></i>Adicionar Tarefa
+</a>
+
+<hr />
+
+<div id="tableDiv"></div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/ScriptsAdicionais/BuildTable.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

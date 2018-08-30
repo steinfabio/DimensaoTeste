@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DimensaoTeste.Models.TaskList>
+
+<div id="barraProgresso">
+    <p>Concluído: @(ViewBag.Percentual)%</p>
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width:@(Html.AttributeEncode(ViewBag.Percentual))%"></div>
+    </div>
+</div>
+
+<table class="tableDiv table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.Situacao, new { id = item.Id, @class = "ActiveCheck" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            <a data-toggle="tooltip" title="Editar" href="/TaskLists/Edit/@(Html.AttributeEncode(item.Id))"><i class="fa fa-fw fa-lg fa-edit"></i></a>
+            <a data-toggle="tooltip" title="Detalhar" href="/TaskLists/Details/@(Html.AttributeEncode(item.Id))"><i class="fa fa-fw fa-lg fa-search"></i></a>
+            <a data-toggle="tooltip" title="Remover" href="/TaskLists/Delete/@(Html.AttributeEncode(item.Id))"><i class="fa fa-fw fa-lg fa-trash"></i></a>
+        </td>
+    </tr>
+    }
+
+</table>
+
+
+<script src="~/ScriptsAdicionais/AddCheckBoxListener.js"></script>
+
+
+
+    
